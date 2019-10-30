@@ -22,12 +22,16 @@ io.on('connection', (socket) => {
 	// 	console.log(data);
 	// });
 	client++;
-	io.sockets.emit('broadcast', {
-		description: client + ' clients connected!'
-	});
+	// io.sockets.emit('broadcast', {
+	// 	description: client + ' clients connected!'
+	// });
+	socket.emit('newclientconnect', { description: 'Hey Welcome!' });
+	socket.broadcast.emit('newclientconnect', { description: client + ' clients connected' })
+
 	socket.on('disconnect', () => {
 		client--;
-		console.log(' A user disconnected');
+		// io.sockets.emit('broadcast',{ description: clients + ' clients connected!'});
+		socket.broadcast.emit('newclientconnect', { description: client + ' clients connected' })
 	});
 });
 
