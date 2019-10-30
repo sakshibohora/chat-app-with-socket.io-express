@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello world</title>
+</head>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    let socket = io();
+    //socket.io event
+    // socket.on('message', (data) => {
+    //     document.write(data);
+    // });
+
+    //custom events
+    socket.on('testEvent',(data)=>{
+        document.write(data.description);
+    });
+
+    //We can also emit events from the client
+    // socket.emit('clientEvent','Sent an event from client');
+</script>
+
+<body>Hello world</body>
+
+</html>
