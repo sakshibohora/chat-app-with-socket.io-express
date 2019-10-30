@@ -13,12 +13,18 @@
     // });
 
     //custom events
-    socket.on('testEvent',(data)=>{
-        document.write(data.description);
-    });
+    // socket.on('testEvent',(data)=>{
+    //     document.write(data.description);
+    // });
 
     //We can also emit events from the client
     // socket.emit('clientEvent','Sent an event from client');
+
+    socket.on('broadcast', (data) => {
+        document.body.innerHTML = '';
+        document.write(data.description);
+    });
+
 </script>
 
 <body>Hello world</body>
